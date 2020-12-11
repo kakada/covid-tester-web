@@ -1,5 +1,7 @@
 .container
   .action.mt-3
+    - if user_signed_in?
+      = link_to "Sign out", destroy_user_session_path, :method => :delete, data: { confirm: "Sign out?" }, rel: "nofollow", class: "btn btn-primary float-right"
     %h2= "Testers: #{@testers.count}"
 
   %table.table

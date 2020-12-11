@@ -2,6 +2,7 @@ require 'sidekiq/web'
 require 'sidekiq-scheduler/web'
 
 Rails.application.routes.draw do
+  devise_for :users
   root 'testers#index'
 
   resources :testers, only: [:index]
@@ -10,5 +11,11 @@ Rails.application.routes.draw do
     resources :testers, only: [:create]
   end
 
-  mount Sidekiq::Web => '/sidekiq'
+  if Rails.env.production?
+    authenticate :user do
+      mount Sidekiq::Web => '/sidekiq'
+    end
+  else
+    mount Sidekiq::Web => '/sidekiq'
+  end
 end
