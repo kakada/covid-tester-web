@@ -1,0 +1,26 @@
+.container
+  .action.mt-3
+    %h2= "Testers: #{@testers.count}"
+
+  %table.table
+    %thead
+      %tr
+        %th{:scope => "col"} #
+        %th{:scope => "col"} Phone number
+        %th{:scope => "col"} Age
+        %th{:scope => "col"} Gender
+        %th{:scope => "col"} Lab ID
+        %th{:scope => "col"} Visited at
+    %tbody
+      - i = 0
+      - @testers.each do |tester|
+        - i += 1
+        %tr
+          %td= i
+          %td= tester.phone_number
+          %td= tester.age
+          %td= tester.gender
+          %td= tester.lab_id
+          %td= tester.visited_at.in_time_zone('Asia/Bangkok')
+  
+  

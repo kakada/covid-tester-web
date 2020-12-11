@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  phone_number: MyString
+  age: 1
+  gender: MyString
+  lab_id: MyString
+  visited_at: 2020-12-11 13:46:45
+
+two:
+  phone_number: MyString
+  age: 1
+  gender: MyString
+  lab_id: MyString
+  visited_at: 2020-12-11 13:46:45
