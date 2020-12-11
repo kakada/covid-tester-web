@@ -8,7 +8,10 @@ class Tester < ApplicationRecord
       csv << attributes
 
       all.each do |tester|
-        csv << [tester.phone_number, tester.age, tester.gender, tester.lab_id, tester.visited_at.in_time_zone('Asia/Bangkok')]
+        record = [tester.phone_number, tester.age, tester.gender, tester.lab_id]
+        record << tester.visited_at.in_time_zone('Asia/Bangkok') if tester.visited_at.present?
+        
+        csv << record
       end
     end
   end

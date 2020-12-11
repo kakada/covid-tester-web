@@ -24,6 +24,7 @@
           %td= tester.age
           %td= tester.gender
           %td= tester.lab_id
-          %td= tester.visited_at.in_time_zone('Asia/Bangkok')
+          - if tester.visited_at.present?
+            %td= tester.visited_at.in_time_zone('Asia/Bangkok')
   
   

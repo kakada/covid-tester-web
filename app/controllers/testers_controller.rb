@@ -1,6 +1,6 @@
 class TestersController < ApplicationController
   def index
-    @testers = Tester.all
+    @testers = Tester.all.order(visited_at: :desc)
 
     respond_to do |format|
       format.html
